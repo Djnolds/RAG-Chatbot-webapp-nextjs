@@ -1,7 +1,7 @@
 import { ChatOpenAI } from "@langchain/openai";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { StringOutputParser } from "@langchain/core/output_parsers";
-import { RunnableSequence } from "@langchain/core/runnables";
+// import { RunnableSequence } from "@langchain/core/runnables";
 import { VectorStore } from "@langchain/core/vectorstores";
 
 interface ProcessMessageArgs {
