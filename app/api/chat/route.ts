@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Message } from "ai";
 import { LangChainAdapter } from "ai";
 import { getVectorStore } from "@/lib/vectorstore";
-import { StringOutputParser } from "@langchain/core/output_parsers";
+// import { StringOutputParser } from "@langchain/core/output_parsers";
 import { ChatOpenAI } from "@langchain/openai";
 import { processUserMessage } from "@/lib/langchain";
 import { getPineconeClient } from "@/lib/pinecone-client";
