@@ -1,6 +1,6 @@
 "use client";
 
-import { scrollToBottom, initialMessages, getSources } from "@/lib/utils";
+import { scrollToBottom, initialMessages } from "@/lib/utils";
 import { useChat, Message } from "ai/react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
@@ -10,7 +10,7 @@ import { Loader2 } from "lucide-react";
 
 export function Chat() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const { messages, input, handleInputChange, handleSubmit, isLoading, data } =
+  const { messages, input, handleInputChange, handleSubmit, isLoading } =
     useChat({
       initialMessages,
     });
@@ -22,7 +22,7 @@ export function Chat() {
   return (
     <div className="rounded-2xl border h-[75vh] flex flex-col justify-between">
       <div className="p-6 overflow-auto" ref={containerRef}>
-        {messages.map(({ id, role, content }: Message, index) => (
+        {messages.map(({ id, role, content }: Message) => (
           <ChatLine
             key={id}
             role={role}

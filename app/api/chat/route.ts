@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
     });
     const pc = await getPineconeClient();
     const vectorStore = await getVectorStore(pc);
-    const parser = new StringOutputParser();
+    // const parser = new StringOutputParser();
     const stream = await processUserMessage({
       userPrompt: currentQuestion,
       conversationHistory: formattedPreviousMessages,

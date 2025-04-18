@@ -7,10 +7,12 @@ const f = createUploadthing();
 export const ourFileRouter = {
   pdfUpload: f({
     pdf: { maxFileSize: "1MB", maxFileCount: 1 },
-  }).onUploadComplete(async ({ metadata, file }) => {
+  }).onUploadComplete(async ({ file }) => {
     console.log("file url", file.ufsUrl);
     return { uploadedBy: "AY" };
   }),
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;
+
+// metadata
