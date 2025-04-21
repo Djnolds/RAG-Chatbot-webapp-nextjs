@@ -5,7 +5,7 @@ import { Pinecone as PineconeClient } from "@pinecone-database/pinecone";
 
 export async function embedAndStoreDocs(
   client: PineconeClient,
-  // @ts-ignore-error docs type error
+  // @ts-expect-error docs type error
   docs: Document<Record<string>>[]
 ) {
   /*create and store the embeddings in the vectorStore*/

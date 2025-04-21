@@ -25,7 +25,7 @@ export async function processUserMessage({
   try {
     // Create non-streaming model for inquiry generation
     const nonStreamingModel = new ChatOpenAI({
-      modelName: "gpt-4o",
+      modelName: "gpt-4o-mini",
       temperature: 0,
       streaming: false,
     });

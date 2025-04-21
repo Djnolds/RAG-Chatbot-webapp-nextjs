@@ -1,7 +1,7 @@
 import { UploadDropzone } from "@/lib/uploadthing";
 import { Pencil, XCircle } from "lucide-react";
 import React from "react";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 import {
   FaFilePdf,
   FaImage,
@@ -16,9 +16,9 @@ import { MdTextSnippet } from "react-icons/md"; // For .txt files
 type PDFUploadInputProps = {
   label: string;
   file: FileProps | null;
-  setFile: any;
+  setFile: (file: FileProps | null) => void;
   className?: string;
-  endpoint?: any;
+  endpoint?: "pdfUpload";
 };
 export type FileProps = {
   title: string;
@@ -69,7 +69,7 @@ export default function PDFFilesUpload({
   file,
   setFile,
   className = "col-span-full",
-  endpoint = "",
+  endpoint = "pdfUpload",
 }: PDFUploadInputProps) {
   function handleImageRemove() {
     setFile(null);
@@ -122,7 +122,7 @@ export default function PDFFilesUpload({
         <UploadDropzone
           className="ut-allowed-content:invisible"
           endpoint={endpoint}
-          onClientUploadComplete={(res: any) => {
+          onClientUploadComplete={(res) => {
             const item = res[0];
             const url = {
               url: item.url,
@@ -135,9 +135,9 @@ export default function PDFFilesUpload({
             console.log(res);
             console.log("Upload Completed");
           }}
-          onUploadError={(error: any) => {
-            toast.error("File Upload Failed, Try Again");
-            console.log(`ERROR! ${error.message}`, error);
+          onUploadError={(error: Error) => {
+            // toast.error("File Upload Failed, Try Again");
+            console.log(`ERROR! ${error.message}`);
           }}
         />
       )}
